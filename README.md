@@ -34,10 +34,10 @@ docker run -d \
 ## Hints
 
  * prevent NPM EACCES errors cause missing permissions on mounted volumes (e.g. on nodejs git dependencies)
- ** the container contains a folder ```/var/npm/``` (owner and group is jenkins).
- ** you can set the npm cache directory to this folder by adding an jenkins build command ```npm config set cache /var/npm/cache``` 
+  * the container contains a folder ```/var/npm/``` (owner and group is jenkins).
+  * you can set the npm cache directory to this folder by adding an jenkins build command ```npm config set cache /var/npm/cache``` 
  * how-tp persist my jenkins config?
- ** add jenkins home volume on docker statup command.
- ** All settings will be stores there
+  * add jenkins home volume on docker statup command.
+  * All settings will be stores there
  * how-to ssh public key auth outside docker container?
- ** create an ```.ssh```directory (permission 700) in your jenkins home directory and copy your private ssh key (permission 644)
+  * create an ```.ssh```directory (permission 700) in your jenkins home directory and copy your private ssh key (permission 644)
