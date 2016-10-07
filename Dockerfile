@@ -35,4 +35,4 @@ RUN mkdir /var/npm && chown jenkins:jenkins /var/npm
 USER jenkins
 
 # adding initial jenkins plugins
-RUN /usr/local/bin/install-plugins.sh git nodejs
+RUN /usr/local/bin/install-plugins.sh git nodejs docker-build-step
