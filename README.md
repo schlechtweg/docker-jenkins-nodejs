@@ -21,6 +21,7 @@ docker run -d \
   -p 8080:8080 \
   --restart=always \
   -v /my/jenkins/home:/var/jenkins_home \
+  --add-host docker:192.168.1.1 \
   --name jenkins \
   schlechtweg/jenkins-nodejs
 ```
@@ -29,6 +30,7 @@ docker run -d \
  * maps the host port 8080 to the container port 8080;
  * sets an "always" restart policy;
  * maps the host folder /my/jenkins/home into the container as the Jenkins home folder; (optional)
+ * adds your docker host to the container /etc/hosts file so that Jenkins can access the Docker API
  * names the image jenkins.
 
 ## Hints
