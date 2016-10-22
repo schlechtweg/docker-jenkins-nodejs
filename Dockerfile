@@ -5,7 +5,8 @@ MAINTAINER David Schlechtweg "david.schlechtweg@me.com"
 
 # global versions
 ENV DOCKER_COMPOSE_VERSION 1.8.1
-ENV NODEJS_VERSION 6.7.0
+ENV NODEJS_VERSION 6.9.1
+ENV DOCKER_MACINE_VERSION 0.8.2
 
 # basic packages
 RUN apt-get update -qq && apt-get install -qqy \
@@ -37,6 +38,10 @@ RUN chmod +x /usr/local/bin/wrapdocker
 RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
+# docker machine
+RUN curl -L https://github.com/docker/machine/releases/download/${DOCKER_MACHINE_VERSION}/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
+RUN chmod +x /usr/local/bin/docker-machine
+
 # Define additional metadata for our image.
 VOLUME /var/lib/docker
 
@@ -64,7 +69,7 @@ VOLUME /var/lib/jenkins
 RUN mkdir /var/npm && chown jenkins:docker /var/npm
 
 # nodejs
-RUN mkdir /nodejs && curl http://nodejs.org/dist/latest/node-v${NODEJS_VERSION}-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
+RUN mkdir /nodejs && curl http://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
 ENV PATH $PATH:/nodejs/bin
 # needed global npm deps
 RUN npm install -g node-gyp  && \
