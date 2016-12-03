@@ -4,8 +4,8 @@ FROM ubuntu:14.04
 MAINTAINER David Schlechtweg "david.schlechtweg@me.com"
 
 # global versions
-ENV DOCKER_COMPOSE_VERSION 1.8.1
-ENV NODEJS_VERSION 6.9.1
+ENV DOCKER_COMPOSE_VERSION 1.9.0
+ENV NODEJS_VERSION 7.2.0
 ENV DOCKER_MACHINE_VERSION 0.8.2
 
 # basic packages
