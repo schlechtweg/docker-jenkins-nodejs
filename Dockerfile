@@ -83,7 +83,7 @@ RUN mkdir /nodejs && curl http://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODE
 ENV PATH $PATH:/nodejs/bin
 # needed global npm deps
 RUN npm install -g node-gyp  && \
-    npm install -g gulp \
+    npm install -g gulp && \
     npm install -g nightwatch 
 
 #
