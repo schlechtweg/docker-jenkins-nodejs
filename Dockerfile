@@ -8,6 +8,8 @@ ENV DOCKER_COMPOSE_VERSION 1.9.0
 ENV NODEJS_VERSION 7.2.0
 ENV DOCKER_MACHINE_VERSION 0.8.2
 
+
+
 # basic packages
 RUN apt-get update -qq && apt-get install -qqy \
     apt-transport-https \
@@ -19,6 +21,14 @@ RUN apt-get update -qq && apt-get install -qqy \
     build-essential \
     git
 
+
+# installing java jdk
+RUN apt-get update
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:webupd8team/java -y
+RUN apt-get update
+RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+RUN apt-get install oracle-java7-installer -y
 
 #
 # docker
@@ -73,7 +83,8 @@ RUN mkdir /nodejs && curl http://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODE
 ENV PATH $PATH:/nodejs/bin
 # needed global npm deps
 RUN npm install -g node-gyp  && \
-    npm install -g gulp 
+    npm install -g gulp \
+    npm install -g nightwatch 
 
 #
 # process manager
@@ -84,4 +95,3 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 8080
 
 CMD ["/usr/bin/supervisord"]
-
