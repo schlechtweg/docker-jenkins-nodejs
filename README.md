@@ -4,13 +4,15 @@ This is a [Jenkins CI](http://jenkins-ci.org/) server with docker in docker supp
 
 Preinstalled build dependencies:
 - [NodeJS](https://nodejs.org/) v7.2.0
-- [NPM](https://www.npmjs.com) v3.8.9
+- [NPM](https://www.npmjs.com) v3.10.9
 - [Gulp CLI](http://gulpjs.com) v3.9.1
 - [Node Gyp](https://github.com/nodejs/node-gyp) v3.4.0
+- [NightwatchJS](http://nightwatchjs.org) v0.9.9
 - [Docker](https://docker.com/) v1.12.3
 - [Docker Compose](https://docs.docker.com/compose/) v1.9.0
 - [Docker Machine](https://docs.docker.com/machine/) v0.8.2
 - [Jenkins CI](http://jenkins-ci.org/) v2.34
+- [Oracle Java JDK](https://www.oracle.com/de/java/) v1.7.0_80
 
 
 ## Running this container
