@@ -23,12 +23,20 @@ RUN apt-get update -qq && apt-get install -qqy \
 
 
 # installing java jdk
-RUN apt-get update
-RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:webupd8team/java -y
-RUN apt-get update
-RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-RUN apt-get install oracle-java8-installer -y
+RUN apt-get update && \
+    apt-get install software-properties-common -y && \
+    add-apt-repository ppa:webupd8team/java -y && \
+    apt-get update && \
+    echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+    apt-get install oracle-java8-installer -y
+
+
+# nightwatch and selenium headless 
+# from https://github.com/dockerfile/chrome/blob/master/Dockerfile
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
+    apt-get update && \
+    apt-get install -y google-chrome-stable xvfb
 
 #
 # docker
