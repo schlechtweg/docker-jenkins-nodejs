@@ -12,7 +12,7 @@ Preinstalled build dependencies:
 - [Docker Compose](https://docs.docker.com/compose/) v1.9.0
 - [Docker Machine](https://docs.docker.com/machine/) v0.8.2
 - [Jenkins CI](http://jenkins-ci.org/) v2.34
-- [Oracle Java JDK](https://www.oracle.com/de/java/) v1.7.0_80
+- [Oracle Java JDK](https://www.oracle.com/de/java/) v1.8.0
 
 
 ## Running this container
