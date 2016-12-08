@@ -92,7 +92,8 @@ ENV PATH $PATH:/nodejs/bin
 # needed global npm deps
 RUN npm install -g node-gyp  && \
     npm install -g gulp && \
-    npm install -g nightwatch 
+    npm install -g nightwatch && \
+    npm install -g nightwatch-html-reporter
 
 #
 # process manager
