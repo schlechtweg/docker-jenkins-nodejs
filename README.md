@@ -3,7 +3,7 @@
 This is a [Jenkins CI](http://jenkins-ci.org/) server with docker in docker support (dind), espacially for building [NodeJS](http://nodejs.org/) applications and composing docker images. The main image is based on docker image from https://github.com/killercentury/docker-jenkins-dind.
 
 Preinstalled build dependencies:
-- [NodeJS](https://nodejs.org/) v7.2.0
+- [NodeJS](https://nodejs.org/) v7.4.0
 - [NPM](https://www.npmjs.com) v3.10.9
 - [Gulp CLI](http://gulpjs.com) v3.9.1
 - [Node Gyp](https://github.com/nodejs/node-gyp) v3.4.0
