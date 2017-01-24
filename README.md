@@ -13,6 +13,7 @@ Preinstalled build dependencies:
 - [Docker Machine](https://docs.docker.com/machine/) v0.8.2
 - [Jenkins CI](http://jenkins-ci.org/) v2.34
 - [Oracle Java JDK](https://www.oracle.com/de/java/) v1.8.0
+- [Sonarqube](https://www.sonarqube.org) v6.2
 
 
 ## Running this container
@@ -26,12 +27,17 @@ docker run -d \
   -e DOCKER_DAEMON_ARGS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock" \
   --restart=always \
   -v /my/jenkins/home:/var/lib/jenkins \
+  -v /my/sonarqube/home/conf:/var/lib/sonarqube/conf \
+  -v /my/sonarqube/home/data:/var/lib/sonarqube/data \
   --name myJenkinsContainer \
   schlechtweg/jenkins-nodejs
 ```
 
  * runs the container;
- * maps the host port 8080 to the container port 8080;
+ * maps the host port 8080 (jenkins) to the container port 8080;
+ * maps the host port 9000 (sonarqube) to the container port 9000;
+ * mount jenkins volume
+ * mount sonarqube data and config dir volume
  * to connect to an docker deamon
  * sets an "always" restart policy;
   * adds your docker host to the container /etc/hosts file so that Jenkins can access the Docker API
