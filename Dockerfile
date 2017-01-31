@@ -8,7 +8,7 @@ ENV DOCKER_COMPOSE_VERSION 1.9.0
 ENV NODEJS_VERSION 7.4.0
 ENV DOCKER_MACHINE_VERSION 0.8.2
 ENV SONARQUBE_VERSION 6.2
-ENV SONARQUBE_HOME /usr/local/sonarqube
+ENV SONARQUBE_HOME /usr/local/sonarqube-$SONARQUBE_VERSION
 
 
 
@@ -104,13 +104,12 @@ RUN npm install -g node-gyp  && \
 # download and unzip
 RUN wget -O /tmp/SQ.zip http://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-$SONARQUBE_VERSION.zip \
     && unzip -o /tmp/SQ.zip -d /usr/local/ \
-    && rm /tmp/SQ.zip \
-    && ln -s $SONARQUBE_HOME-$SONARQUBE_VERSION $SONARQUBE_HOME
+    && rm /tmp/SQ.zip
 
 # copy properties
-COPY ./sonar.properties $SONARQUBE_HOME/conf/
 VOLUME "$SONARQUBE_HOME/data"
 VOLUME "$SONARQUBE_HOME/conf"
+COPY ./sonar.properties $SONARQUBE_HOME/conf/
 
 #
 # process manager
