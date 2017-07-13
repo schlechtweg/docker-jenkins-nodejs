@@ -3,17 +3,17 @@
 This is a [Jenkins CI](http://jenkins-ci.org/) server with docker in docker support (dind), espacially for building [NodeJS](http://nodejs.org/) applications and composing docker images. The main image is based on docker image from https://github.com/killercentury/docker-jenkins-dind.
 
 Preinstalled build dependencies:
-- [NodeJS](https://nodejs.org/) v7.4.0
+- [NodeJS](https://nodejs.org/) v8.1.4
 - [NPM](https://www.npmjs.com) v3.10.9
 - [Gulp CLI](http://gulpjs.com) v3.9.1
 - [Node Gyp](https://github.com/nodejs/node-gyp) v3.4.0
 - [NightwatchJS](http://nightwatchjs.org) v0.9.9
-- [Docker](https://docker.com/) v1.12.3
-- [Docker Compose](https://docs.docker.com/compose/) v1.9.0
-- [Docker Machine](https://docs.docker.com/machine/) v0.8.2
+- [Docker](https://docker.com/) v17.06.0
+- [Docker Compose](https://docs.docker.com/compose/) v1.14.0
+- [Docker Machine](https://docs.docker.com/machine/) v0.12.2
 - [Jenkins CI](http://jenkins-ci.org/) v2.34
 - [Oracle Java JDK](https://www.oracle.com/de/java/) v1.8.0
-- [Sonarqube](https://www.sonarqube.org) v6.2
+- [Sonarqube](https://www.sonarqube.org) v6.4
 
 
 ## Running this container
