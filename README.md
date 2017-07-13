@@ -28,8 +28,8 @@ docker run -d \
   -e DOCKER_DAEMON_ARGS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock" \
   --restart=always \
   -v /my/jenkins/home:/var/lib/jenkins \
-  -v /my/sonarqube/home/conf:/var/lib/sonarqube-6.2/conf \
-  -v /my/sonarqube/home/data:/var/lib/sonarqube-6.2/data \
+  -v /my/sonarqube/home/conf:/var/lib/sonarqube-6.4/conf \
+  -v /my/sonarqube/home/data:/var/lib/sonarqube-6.4/data \
   --name myJenkinsContainer \
   schlechtweg/jenkins-nodejs
 ```
