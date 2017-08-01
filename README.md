@@ -6,6 +6,7 @@ Preinstalled build dependencies:
 - [NodeJS](https://nodejs.org/) v8.1.4
 - [NPM](https://www.npmjs.com) v3.10.9
 - [Gulp CLI](http://gulpjs.com) v3.9.1
+- [Grunt CLI](https://gruntjs.com) v1.0.1
 - [Node Gyp](https://github.com/nodejs/node-gyp) v3.4.0
 - [NightwatchJS](http://nightwatchjs.org) v0.9.9
 - [Docker](https://docker.com/) v17.06.0

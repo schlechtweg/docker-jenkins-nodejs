@@ -95,7 +95,8 @@ ENV PATH $PATH:/nodejs/bin
 RUN npm install -g node-gyp  && \
     npm install -g gulp && \
     npm install -g nightwatch && \
-    npm install -g nightwatch-html-reporter
+    npm install -g nightwatch-html-reporter && \
+    npm install -g grunt-cli
 
 #
 # sonarqube
