@@ -7,6 +7,8 @@ Preinstalled build dependencies:
 - [NPM](https://www.npmjs.com) v3.10.9
 - [Gulp CLI](http://gulpjs.com) v3.9.1
 - [Grunt CLI](https://gruntjs.com) v1.0.1
+- [Bower](https://bower.io) v1.8.0
+- [Sass](http://sass-lang.com) v3.5.1
 - [Node Gyp](https://github.com/nodejs/node-gyp) v3.4.0
 - [NightwatchJS](http://nightwatchjs.org) v0.9.9
 - [Docker](https://docker.com/) v17.06.0

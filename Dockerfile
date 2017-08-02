@@ -21,7 +21,17 @@ RUN apt-get update -qq && apt-get install -qqy \
     iptables \
     python \
     build-essential \
-    git
+    git \
+    g++ \
+    openssl
+
+
+# install RVM, Ruby, Bundler, Sass
+RUN curl -L https://get.rvm.io | bash -s stable
+RUN /bin/bash -l -c "rvm requirements"
+RUN /bin/bash -l -c "rvm install 2.0"
+RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
+RUN /bin/bash -l -c "gem install sass --no-ri --no-rdoc"
 
 
 # installing java jdk
@@ -39,6 +49,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
     apt-get update && \
     apt-get install -y google-chrome-stable xvfb
+
 
 #
 # docker
@@ -96,7 +107,9 @@ RUN npm install -g node-gyp  && \
     npm install -g gulp && \
     npm install -g nightwatch && \
     npm install -g nightwatch-html-reporter && \
-    npm install -g grunt-cli
+    npm install -g grunt-cli && \
+    npm install -g bower
+
 
 #
 # sonarqube
