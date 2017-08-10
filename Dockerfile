@@ -9,8 +9,7 @@ ENV NODEJS_VERSION 8.1.4
 ENV DOCKER_MACHINE_VERSION 0.12.2
 ENV SONARQUBE_VERSION 6.4
 ENV SONARQUBE_HOME /usr/local/sonarqube-$SONARQUBE_VERSION
-
-
+ENV RUBY_VERSION 2.0.0-p648
 
 # basic packages
 RUN apt-get update -qq && apt-get install -qqy \
@@ -29,9 +28,11 @@ RUN apt-get update -qq && apt-get install -qqy \
 # install RVM, Ruby, Bundler, Sass
 RUN curl -L https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm requirements"
-RUN /bin/bash -l -c "rvm install 2.0"
+RUN /bin/bash -l -c "rvm install ${RUBY_VERSION}"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN /bin/bash -l -c "gem install sass --no-ri --no-rdoc"
+ENV PATH=$PATH:/usr/local/rvm/gems/ruby-${RUBY_VERSION}/bin:/usr/local/rvm/rubies/ruby-${RUBY_VERSION}/bin:/usr/local/rvm/rubies/ruby-${RUBY_VERSION}/lib/ruby/gems/${RUBY_VERSION}/bin
+ENV GEM_PATH=/usr/local/rvm/gems/ruby-${RUBY_VERSION}:/usr/local/rvm/rubies/ruby-${RUBY_VERSION}:/usr/local/rvm/rubies/ruby-${RUBY_VERSION}/lib/ruby/gems/${RUBY_VERSION}
 
 
 # installing java jdk
@@ -101,7 +102,7 @@ RUN mkdir /var/npm && chown jenkins:docker /var/npm
 
 # nodejs
 RUN mkdir /nodejs && curl http://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
-ENV PATH $PATH:/nodejs/bin
+ENV PATH=$PATH:/nodejs/bin
 # needed global npm deps
 RUN npm install -g node-gyp  && \
     npm install -g gulp && \
