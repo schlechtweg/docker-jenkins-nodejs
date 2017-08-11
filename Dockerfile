@@ -109,8 +109,9 @@ RUN npm install -g node-gyp  && \
     npm install -g nightwatch && \
     npm install -g nightwatch-html-reporter && \
     npm install -g grunt-cli && \
-    npm install -g bower
-
+    npm install -g bower && \
+    npm install --unsafe-perm -g azure-cli && \
+    azure telemetry --disable
 
 #
 # sonarqube
